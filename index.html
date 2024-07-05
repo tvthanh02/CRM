@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRM</title>
+    <style>
+      body {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .dialog {
+        display: none;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.3);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+      .dialog.open {
+        display: block;
+      }
+      .dialog-wrap {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        width: 500px;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        color: #333;
+        padding: 20px;
+      }
+      .dialog-head {
+        font-size: 20px;
+        font-weight: bold;
+        padding: 8px 0;
+        border-bottom: 1px solid #f1f1f1;
+      }
+      .dialog-content {
+        height: 100px;
+        display: flex;
+        align-items: center;
+      }
+
+      .dialog-btn {
+        display: flex;
+        gap: 20px;
+        border-top: 1px solid #f1f1f1;
+        padding: 8px 0;
+      }
+      .btn {
+        padding: 10px 30px;
+        outline: none;
+        border: 1px solid #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .btn-ok {
+        display: none;
+        background-color: #0808c3;
+        color: white;
+        border: 1px solid #0808c3;
+      }
+      .item {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+        margin: 25px;
+        color: #0808c3;
+      }
+      .item:first-child {
+        margin: 0;
+        color: #333;
+      }
+      .item p {
+        border-right: 1px solid #f1f1f1;
+        display: flex;
+        justify-content: center;
+      }
+      .item p:last-child {
+        border-right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        width: 100%;
+        height: 60px;
+
+        background-color: #0808c3;
+        color: white;
+      "
+    >
+      <div
+        style="
+          width: 1200px;
+          margin: 0 auto;
+          height: 100%;
+          display: flex;
+          align-items: center;
+        "
+        class="container"
+      >
+        <p style="font-size: 30px; font-weight: bold; line-height: 30px">CRM</p>
+      </div>
+    </div>
+    <div style="padding: 20px; box-shadow: 0 0 2px 3px #f1f1f1">
+      <div
+        style="
+          width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        "
+      >
+        <p style="font-size: 30px">Cơ hội</p>
+        <div style="display: flex; gap: 20px">
+          <button
+            class="btn-main"
+            style="
+              width: fit-content;
+              padding: 10px 40px;
+              border-radius: 16px;
+              background-color: #0808c3;
+              color: white;
+              outline: none;
+              border: none;
+            "
+          >
+            Nhận cơ hội
+          </button>
+          <button
+            style="
+              width: fit-content;
+              padding: 10px 40px;
+              border-radius: 16px;
+              background-color: #0808c3;
+              color: white;
+              outline: none;
+              border: none;
+            "
+          >
+            Nhận cơ hội cũ
+          </button>
+          <button
+            style="
+              width: fit-content;
+              padding: 10px 40px;
+              border-radius: 16px;
+              background-color: white;
+              color: black;
+              outline: none;
+              border: 1px solid #333;
+            "
+          >
+            Gọi số trùng
+          </button>
+        </div>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 20px">
+      <div
+        style="
+          width: 100%;
+          height: 200px;
+          border-right: 1px solid #f1f1f1;
+          padding: 20px;
+        "
+      >
+        Sidebar
+      </div>
+      <div
+        class="content"
+        style="border-left: 1px solid #f1f1f1; padding: 20px; font-weight: bold"
+      >
+        <div class="item">
+          <p>Mã KH</p>
+          <p>Họ Tên</p>
+          <p>Địa Chỉ</p>
+          <p>Số Điện Thoại</p>
+          <p>Vip</p>
+        </div>
+      </div>
+    </div>
+    <div class="dialog">
+      <div class="dialog-wrap">
+        <div class="dialog-head">Nhận số mới</div>
+        <div class="dialog-content">
+          <p class="dialog-text"></p>
+        </div>
+        <div class="dialog-btn">
+          <button class="btn btn-ok">Nhận</button>
+          <button class="btn btn-cancel">Hủy bỏ</button>
+        </div>
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
